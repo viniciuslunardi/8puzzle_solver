@@ -3,6 +3,7 @@ export default class Board {
         this.board = board;
         this.parent = parent;
         this.move = move;
+        this.cost = this.parent ? this.parent.cost + 1 : 0; // custo do nodo
         this.children = []; // tabuleiros filhos gerados
         this.goal = [
             [1, 2, 3],
@@ -12,10 +13,21 @@ export default class Board {
         this.directions = ['UP', 'DOWN', 'LEFT', 'RIGHT'];
     }
 
+    /*
+       Method that tells if the current board is the goal
+    */
     isGoal() {
         return JSON.stringify(this.board) === JSON.stringify(this.goal);
     }
 
+    /*
+       Method to move the board position, generating new boards
+
+       @param { number } x      the x position of the blank value (0)
+       @param { number } y      the y position of the blank value (0)
+       @param { string } diretion       the direction of the moovement ( must be: UP, DOWN, LEFT, RIGHT)
+       @returns { void | Array[][] }
+    */
     moveBoard(x, y, direction) {
         const newBoard = this.board.map(row => row.slice());
 
@@ -49,6 +61,10 @@ export default class Board {
         return null;
     }
 
+    /*
+     Method that creates all the new nodes that the current board can
+     generate based on all the possible moovements
+    */
     generateChildrenBoards() {
         const x = this.board.findIndex(row => row.includes(0));
         const y = this.board[x].indexOf(0);
