@@ -47,6 +47,28 @@ export default class HeuristicsBoard extends Board {
                     let targetY = (cellValue - 1) % 3; // posição do eixo Y que o valor precisa estar
                     // distancia vira o valor da hueristica: posição atual do numero + o valor de onde ele deveria estar, que se acumula para cada posição do tabuleiro, quanto mais perto, menor
                     distance += Math.abs(i - targetX) + Math.abs(j - targetY);
+
+                    // Conflito Linear nas linhas
+                    if (i === targetX) {
+                        for (let k = j + 1; k < 3; k++) {
+                            let nextCellValue = this.board[i][k];
+                            let nextTargetX = Math.floor((nextCellValue - 1) / 3);
+                            if (i === nextTargetX && cellValue > nextCellValue) {
+                                distance += 2;
+                            }
+                        }
+                    }
+
+                    // Conflito Linear nas colunas
+                    if (j === targetY) {
+                        for (let k = i + 1; k < 3; k++) {
+                            let nextCellValue = this.board[k][j];
+                            let nextTargetY = (nextCellValue - 1) % 3;
+                            if (j === nextTargetY && cellValue > nextCellValue) {
+                                distance += 2;
+                            }
+                        }
+                    }
                 }
             }
         }
