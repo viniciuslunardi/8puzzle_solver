@@ -34,4 +34,7 @@ import Game from './entities/Game.js';
 
     const game = new Game(initialBoard, searchMethod);
     game.play();
+
+    // keeps process alive
+    process.stdin.resume();
 })();
