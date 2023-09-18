@@ -14,6 +14,7 @@ export default class Game {
         this.searchMethodFunc = this.searchMethods[searchMethod];
         this.visitedBoards = new Set();
         this.nodesVisited = 0;
+        this.notExploredBoards = 0;
     }
 
     printSolution(node) {
@@ -59,8 +60,8 @@ export default class Game {
             let currentNode = openList.shift(); // pega o primeiro nó (mais promissor) para seguir executando, remove ele dos nodos abertos
 
             this.nodesVisited++;  // Incrementa o contador de nós visitados, agora o currentNode foi visitado
-            // todo aq da pra fazer algo melhor
             if (currentNode.isGoal()) {
+                this.notExploredBoards = openList.length;
                 return this.printSolution(currentNode);
             }
 
@@ -89,8 +90,8 @@ export default class Game {
 
             this.nodesVisited++;
 
-            // todo aq da pra fazer algo melhor
             if (currentNode.isGoal()) {
+                this.notExploredBoards = openList.length;
                 return this.printSolution(currentNode);
             }
 
@@ -114,6 +115,7 @@ export default class Game {
         this.displaySolution(solution);
 
         console.log(`Total de nodos (tabuleiros) visitados: ${this.nodesVisited}`);
+        console.log(`Tamanho da fronteira: ${this.notExploredBoards}`);
         console.timeEnd('Tempo de execução');
     }
 }
