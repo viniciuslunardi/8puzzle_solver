@@ -51,7 +51,6 @@ export default class Game {
     }
 
     heuristicSearch() {
-        // todo aq da pra fazer algo melhor
         this.searchMethod === 1 ? console.log('MÉTODO DE BUSCA HEURÍSTICA A* SIMPLES') : console.log('MÉTODO DE BUSCA HEURÍSTICA A* COM MELHOR HEURÍSTICA');
         const openList = this.searchMethod === 1 ? [new HeuristicsBoard(this.initialBoard)] : [new HeuristicsBoard(this.initialBoard, null, '', false)];
 

@@ -6,7 +6,6 @@ import Game from './entities/Game.js';
     // 0 = Uniform Cost
     // 1 = Simple Heuristic
     // 2 = Complex/better Heuristic
-    //todo aq da pra fazer algo melhor
     const searchMethod = 2; // change this to use different approaches to the solution
 
     // 12 movimentos pra resolver
