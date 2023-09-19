@@ -23,7 +23,7 @@ sh run.sh
 
 ## Tabuleiros Disponíveis
 
-### Simples
+### Simples (12 movimentos)
 
 ```
 4 1 2
@@ -31,7 +31,16 @@ sh run.sh
 0 8 5
 ```
 
-### Médio
+### Simples (14 movimentos)
+
+```
+4 1 2
+3 0 6
+7 8 5
+```
+
+
+### Médio (20 movimentos)
 
 ```
 8 3 6
@@ -39,12 +48,28 @@ sh run.sh
 4 7 0
 ```
 
-### Complexo
+### Médio (21 movimentos)
+
+```
+8 3 6
+0 5 1
+2 4 7
+```
+
+### Complexo (30 movimentos)
 
 ```
 8 6 7
 2 5 4
 3 1 0
+```
+
+### Complexo (31 movimentos)
+
+```
+8 6 7
+2 5 4
+3 0 1
 ```
 
 
