@@ -36,7 +36,7 @@ export default class Game {
             this.printBoard(boards[0]);
         } else {
             moves.forEach((move, index) => {
-                console.log(`Step ${index + 1}: Move 0  ${move}`);
+                console.log(`Passo ${index + 1}: Move 0  ${move}`);
                 this.printBoard(boards[index]);
             });
             console.log("Passos para resolver o jogo:", moves.length);
